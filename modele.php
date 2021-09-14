@@ -3,7 +3,7 @@
 function result()
 {
 
-require('connect.php');
+$db = connect();
 
 session_start();
 
@@ -20,5 +20,17 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 return $result;
 
 
+} 
+
+function connect()
+{
+    try {
+    // Connexion à la base
+    $db = new PDO('mysql:host=localhost;dbname=crud', 'root', '');
+    $db->exec('SET NAMES "UTF8"');
+    return $db;
+} catch (PDOException $e) {
+    echo 'Erreur : ' . $e->getMessage();
+    die();
 }
-?>
+}

@@ -2,11 +2,10 @@
 
 function result()
 {
-// On démarre une session
-session_start();
 
-// On inclut la connexion à la base
-require_once('connect.php');
+require('connect.php');
+
+session_start();
 
 $sql = 'SELECT * FROM `liste`';
 
@@ -20,6 +19,6 @@ $query->execute();
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
 return $result;
 
-require_once('close.php');
+
 }
 ?>

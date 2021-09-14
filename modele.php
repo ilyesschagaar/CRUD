@@ -63,7 +63,7 @@ if($_POST){
         $_SESSION['message'] = "Produit ajouté";
         require_once('close.php');
 
-        // header('Location: index.php');
+        //header('Location: index.php');
     }else{
         $_SESSION['erreur'] = "Le formulaire est incomplet";
     }

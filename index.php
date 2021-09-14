@@ -1,5 +1,5 @@
 <?php
-require('controler.php');
+require('controller.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'affichage') {

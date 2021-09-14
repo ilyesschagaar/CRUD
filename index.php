@@ -68,7 +68,7 @@ require_once('close.php');
                                 <td><?= $produit['produit'] ?></td>
                                 <td><?= $produit['prix'] ?></td>
                                 <td><?= $produit['nombre'] ?></td>
-                                <td><a href="details.php?id=<?= $produit['id'] ?>">Voir</a> <a href="edit.php?id=<?= $produit['id'] ?>">Modifier</a> <a href="delete.php?id=<?= $produit['id'] ?>">Supprimer</a></td>
+                                <td><a class="btn btn-primary" href="details.php?id=<?= $produit['id'] ?>">Voir</a> <a class="btn btn-success" href="edit.php?id=<?= $produit['id'] ?>">Modifier</a> <a class="btn btn-danger" href="delete.php?id=<?= $produit['id'] ?>">Supprimer</a></td>
                             </tr>
                         <?php
                         }

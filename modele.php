@@ -1,4 +1,7 @@
 <?php
+
+function result()
+{
 // On démarre une session
 session_start();
 
@@ -15,6 +18,8 @@ $query->execute();
 
 // On stocke le résultat dans un tableau associatif
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
+return $result;
 
 require_once('close.php');
+}
 ?>

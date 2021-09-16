@@ -48,14 +48,17 @@
                                 <td><?= $produit['produit'] ?></td>
                                 <td><?= $produit['prix'] ?></td>
                                 <td><?= $produit['nombre'] ?></td>
-                                <td><a class="btn btn-primary" href="details.php?id=<?= $produit['id'] ?>">Voir</a> <a class="btn btn-success" href="edit.php?id=<?= $produit['id'] ?>">Modifier</a> <a class="btn btn-danger" href="delete.php?id=<?= $produit['id'] ?>">Supprimer</a></td>
+                                <td><a class="btn btn-primary" href="index.php?action=voir&AMP;id=<?= $produit['id'] ?>">Voir</a>
+                                 <a class="btn btn-success" href="index.php?action=modifier&AMP;id=<?= $produit['id'] ?>">Modifier</a>
+                                  <a class="btn btn-danger" href="index.php?action=supprimer&AMP;id=<?= $produit['id']?>">Supprimer</a>
+                                </td>
                             </tr>
                         <?php
                         }
                         ?>
                     </tbody>
                 </table>
-                <a href="add.php" class="btn btn-primary">Ajouter un produit</a>
+                <a href="index.php?action=ajouter" class="btn btn-primary">Ajouter un produit</a>
             </section>
         </div>
     </main>

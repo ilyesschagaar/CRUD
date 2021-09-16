@@ -12,4 +12,21 @@ function addProduct()
     $add = add();
     require("add.php");
 }
+
+function deleteProduct()
+{
+    $delete = delete();
+}
+
+function detailProduct()
+{
+    $produit = detail();
+    require("details.php");
+}
+
+function modifierProduct()
+{
+    $produit=modifier();
+    require("edit.php");
+}
 ?>

@@ -1,37 +1,6 @@
 <?php
 // On démarre une session
-session_start();
 
-// Est-ce que l'id existe et n'est pas vide dans l'URL
-if(isset($_GET['id']) && !empty($_GET['id'])){
-    require_once('connect.php');
-
-    // On nettoie l'id envoyé
-    $id = strip_tags($_GET['id']);
-
-    $sql = 'SELECT * FROM `liste` WHERE `id` = :id;';
-
-    // On prépare la requête
-    $query = $db->prepare($sql);
-
-    // On "accroche" les paramètre (id)
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
-
-    // On exécute la requête
-    $query->execute();
-
-    // On récupère le produit
-    $produit = $query->fetch();
-
-    // On vérifie si le produit existe
-    if(!$produit){
-        $_SESSION['erreur'] = "Cet id n'existe pas";
-        header('Location: index.php');
-    }
-}else{
-    $_SESSION['erreur'] = "URL invalide";
-    header('Location: index.php');
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -50,7 +19,9 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
                 <p>Produit : <?= $produit['produit'] ?></p>
                 <p>Prix : <?= $produit['prix'] ?></p>
                 <p>Nombre : <?= $produit['nombre'] ?></p>
-                <p><a href="index.php">Retour</a> <a href="edit.php?id=<?= $produit['id'] ?>">Modifier</a></p>
+                <p><a class="btn btn-primary" href="index.php">Retour</a> 
+                <a class="btn btn-success" href="index.php?action=modifier&AMP;id=<?= $produit['id']?>">Modifier</a>
+                <a class="btn btn-danger" href="index.php?action=supprimer&AMP;id=<?= $produit['id']?>">Supprimer</a></p>
             </section>
         </div>
     </main>

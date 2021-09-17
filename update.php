@@ -1,9 +1,15 @@
+<?php
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un produit</title>
+    <title>Modifier un produit</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -19,21 +25,22 @@
                         $_SESSION['erreur'] = "";
                     }
                 ?>
-                <h1>Ajouter un produit</h1>
+                <h1>Modifier un produit</h1>
                 <form method="post">
                     <div class="form-group">
                         <label for="produit">Produit</label>
-                        <input type="text" id="produit" name="produit" class="form-control">
+                        <input type="text" id="produit" name="produit" class="form-control" value="<?= $products['produit']?>">
                     </div>
                     <div class="form-group">
                         <label for="prix">Prix</label>
-                        <input type="text" id="prix" name="prix" class="form-control">
+                        <input type="text" id="prix" name="prix" class="form-control" value="<?= $products['prix']?>">
 
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="number" id="nombre" name="nombre" class="form-control">
+                        <input type="number" id="nombre" name="nombre" class="form-control" value="<?= $products['nombre']?>">
                     </div>
+                    <input type="hidden" value="<?= $products['id']?>" name="id">
                     <button class="btn btn-primary">Envoyer</button>
                 </form>
             </section>

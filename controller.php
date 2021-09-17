@@ -3,7 +3,7 @@ require("model.php");
 
 function viewProduct()
 {
-    $products = view();
+    $product = view();
     require("view.php");
 }
 function addProduct()
@@ -26,6 +26,6 @@ function detailProduct()
 function updateProduct()
 {
     $products = update();
-    require("edit.php");
+    require("update.php");
 }
 ?>

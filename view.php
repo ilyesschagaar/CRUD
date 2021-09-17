@@ -41,14 +41,14 @@
                     <tbody>
                         <?php
                         // On boucle sur la variable result
-                        foreach ($products as $product) {
+                        foreach ($product as $products) {
                         ?>
                             <tr>
                                 <td><?= $products['id'] ?></td>
                                 <td><?= $products['produit'] ?></td>
                                 <td><?= $products['prix'] ?></td>
                                 <td><?= $products['nombre'] ?></td>
-                                <td><a class="btn btn-primary" href="index.php?action=view&AMP;id=<?= $products['id'] ?>">Voir</a>
+                                <td><a class="btn btn-primary" href="index.php?action=detail&AMP;id=<?= $products['id'] ?>">Voir</a>
                                  <a class="btn btn-success" href="index.php?action=update&AMP;id=<?= $products['id'] ?>">Modifier</a>
                                   <a class="btn btn-danger" href="index.php?action=delete&AMP;id=<?= $products['id']?>">Supprimer</a>
                                 </td>

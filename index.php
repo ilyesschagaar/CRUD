@@ -3,7 +3,7 @@ require('controller.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'view') {
-        view();
+        viewProduct();
     } elseif ($_GET['action'] == 'add') {
         addProduct();
     } elseif ($_GET['action'] == 'delete') {
@@ -14,6 +14,6 @@ if (isset($_GET['action'])) {
         updateProduct();
     }
 } else {
-    view();
+    viewProduct();
 }
 ?>

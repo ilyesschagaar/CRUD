@@ -29,18 +29,18 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="produit">Produit</label>
-                        <input type="text" id="produit" name="produit" class="form-control" value="<?= $product['produit']?>">
+                        <input type="text" id="produit" name="produit" class="form-control" value="<?= $products['produit']?>">
                     </div>
                     <div class="form-group">
                         <label for="prix">Prix</label>
-                        <input type="text" id="prix" name="prix" class="form-control" value="<?= $product['prix']?>">
+                        <input type="text" id="prix" name="prix" class="form-control" value="<?= $products['prix']?>">
 
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="number" id="nombre" name="nombre" class="form-control" value="<?= $product['nombre']?>">
+                        <input type="number" id="nombre" name="nombre" class="form-control" value="<?= $products['nombre']?>">
                     </div>
-                    <input type="hidden" value="<?= $product['id']?>" name="id">
+                    <input type="hidden" value="<?= $products['id']?>" name="id">
                     <button class="btn btn-primary">Envoyer</button>
                 </form>
             </section>

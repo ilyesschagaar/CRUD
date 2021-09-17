@@ -2,18 +2,18 @@
 require('controller.php');
 
 if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'affichage') {
-        affichage();
-    } elseif ($_GET['action'] == 'ajouter') {
+    if ($_GET['action'] == 'view') {
+        view();
+    } elseif ($_GET['action'] == 'add') {
         addProduct();
-    } elseif ($_GET['action'] == 'supprimer') {
+    } elseif ($_GET['action'] == 'delete') {
         deleteProduct();
-    } elseif ($_GET['action'] == 'voir') {
+    } elseif ($_GET['action'] == 'detail') {
         detailProduct();
-    }elseif ($_GET['action'] == 'modifier') {
-        modifierProduct();
+    }elseif ($_GET['action'] == 'update') {
+        updateProduct();
     }
 } else {
-    affichage();
+    view();
 }
 ?>

@@ -41,16 +41,16 @@
                     <tbody>
                         <?php
                         // On boucle sur la variable result
-                        foreach ($result as $produit) {
+                        foreach ($products as $product) {
                         ?>
                             <tr>
-                                <td><?= $produit['id'] ?></td>
-                                <td><?= $produit['produit'] ?></td>
-                                <td><?= $produit['prix'] ?></td>
-                                <td><?= $produit['nombre'] ?></td>
-                                <td><a class="btn btn-primary" href="index.php?action=voir&AMP;id=<?= $produit['id'] ?>">Voir</a>
-                                 <a class="btn btn-success" href="index.php?action=modifier&AMP;id=<?= $produit['id'] ?>">Modifier</a>
-                                  <a class="btn btn-danger" href="index.php?action=supprimer&AMP;id=<?= $produit['id']?>">Supprimer</a>
+                                <td><?= $products['id'] ?></td>
+                                <td><?= $products['produit'] ?></td>
+                                <td><?= $products['prix'] ?></td>
+                                <td><?= $products['nombre'] ?></td>
+                                <td><a class="btn btn-primary" href="index.php?action=view&AMP;id=<?= $products['id'] ?>">Voir</a>
+                                 <a class="btn btn-success" href="index.php?action=update&AMP;id=<?= $products['id'] ?>">Modifier</a>
+                                  <a class="btn btn-danger" href="index.php?action=delete&AMP;id=<?= $products['id']?>">Supprimer</a>
                                 </td>
                             </tr>
                         <?php
@@ -58,7 +58,7 @@
                         ?>
                     </tbody>
                 </table>
-                <a href="index.php?action=ajouter" class="btn btn-primary">Ajouter un produit</a>
+                <a href="index.php?action=add" class="btn btn-primary">Ajouter un produit</a>
             </section>
         </div>
     </main>

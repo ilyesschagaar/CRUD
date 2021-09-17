@@ -14,14 +14,14 @@
     <main class="container">
         <div class="row">
             <section class="col-12">
-                <h1>Détails du produit <?= $produit['produit'] ?></h1>
-                <p>ID : <?= $produit['id'] ?></p>
-                <p>Produit : <?= $produit['produit'] ?></p>
-                <p>Prix : <?= $produit['prix'] ?></p>
-                <p>Nombre : <?= $produit['nombre'] ?></p>
+                <h1>Détails du produit <?= $products['produit'] ?></h1>
+                <p>ID : <?= $products['id'] ?></p>
+                <p>Produit : <?= $products['produit'] ?></p>
+                <p>Prix : <?= $products['prix'] ?></p>
+                <p>Nombre : <?= $products['nombre'] ?></p>
                 <p><a class="btn btn-primary" href="index.php">Retour</a> 
-                <a class="btn btn-success" href="index.php?action=modifier&AMP;id=<?= $produit['id']?>">Modifier</a>
-                <a class="btn btn-danger" href="index.php?action=supprimer&AMP;id=<?= $produit['id']?>">Supprimer</a></p>
+                <a class="btn btn-success" href="index.php?action=update&AMP;id=<?= $products['id']?>">Modifier</a>
+                <a class="btn btn-danger" href="index.php?action=delete&AMP;id=<?= $products['id']?>">Supprimer</a></p>
             </section>
         </div>
     </main>

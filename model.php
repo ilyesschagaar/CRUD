@@ -1,6 +1,6 @@
 <?php
 
-function result()
+function view()
 {
 
 $db = connect();
@@ -16,8 +16,8 @@ $query = $db->prepare($sql);
 $query->execute();
 
 // On stocke le résultat dans un tableau associatif
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
-return $result;
+$products = $query->fetchAll(PDO::FETCH_ASSOC);
+return $products;
 } 
 
 function connect()
@@ -45,17 +45,17 @@ if($_POST){
         $db = connect();
 
         // On nettoie les données envoyées
-        $produit = strip_tags($_POST['produit']);
-        $prix = strip_tags($_POST['prix']);
-        $nombre = strip_tags($_POST['nombre']);
+        $products = strip_tags($_POST['produit']);
+        $price = strip_tags($_POST['prix']);
+        $number = strip_tags($_POST['nombre']);
 
         $sql = 'INSERT INTO `liste` (`produit`, `prix`, `nombre`) VALUES (:produit, :prix, :nombre);';
 
         $query = $db->prepare($sql);
 
-        $query->bindValue(':produit', $produit, PDO::PARAM_STR);
-        $query->bindValue(':prix', $prix, PDO::PARAM_STR);
-        $query->bindValue(':nombre', $nombre, PDO::PARAM_INT);
+        $query->bindValue(':produit', $products, PDO::PARAM_STR);
+        $query->bindValue(':prix', $price, PDO::PARAM_STR);
+        $query->bindValue(':nombre', $number, PDO::PARAM_INT);
 
         $query->execute();
 
@@ -91,10 +91,10 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     $query->execute();
 
     // On récupère le produit
-    $produit = $query->fetch();
+    $products = $query->fetch();
 
     // On vérifie si le produit existe
-    if(!$produit){
+    if(!$products){
         $_SESSION['erreur'] = "Cet id n'existe pas";
         header('Location: index.php');
         die();
@@ -141,10 +141,10 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
     $query->execute();
 
     // On récupère le produit
-    $produit = $query->fetch();
-    return $produit;
+    $products = $query->fetch();
+    return $products;
     // On vérifie si le produit existe
-    if(!$produit){
+    if(!$products){
         $_SESSION['erreur'] = "Cet id n'existe pas";
         header('Location: index.php');
     }
@@ -154,7 +154,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 }
 }
 
-function modifier()
+function update()
 {
     // On démarre une session
     session_start();
@@ -169,18 +169,18 @@ function modifier()
     
             // On nettoie les données envoyées
             $id = strip_tags($_POST['id']);
-            $produit = strip_tags($_POST['produit']);
-            $prix = strip_tags($_POST['prix']);
-            $nombre = strip_tags($_POST['nombre']);
+            $products = strip_tags($_POST['produit']);
+            $price = strip_tags($_POST['prix']);
+            $number = strip_tags($_POST['nombre']);
     
             $sql = 'UPDATE `liste` SET `produit`=:produit, `prix`=:prix, `nombre`=:nombre WHERE `id`=:id;';
     
             $query = $db->prepare($sql);
     
             $query->bindValue(':id', $id, PDO::PARAM_INT);
-            $query->bindValue(':produit', $produit, PDO::PARAM_STR);
-            $query->bindValue(':prix', $prix, PDO::PARAM_STR);
-            $query->bindValue(':nombre', $nombre, PDO::PARAM_INT);
+            $query->bindValue(':produit', $products, PDO::PARAM_STR);
+            $query->bindValue(':prix', $price, PDO::PARAM_STR);
+            $query->bindValue(':nombre', $number, PDO::PARAM_INT);
     
             $query->execute();
     
@@ -212,10 +212,10 @@ function modifier()
         $query->execute();
     
         // On récupère le produit
-        $produit = $query->fetch();
-        return $produit;
+        $products = $query->fetch();
+        return $products;
         // On vérifie si le produit existe
-        if(!$produit){
+        if(!$products){
             $_SESSION['erreur'] = "Cet id n'existe pas";
             header('Location: index.php');
         }

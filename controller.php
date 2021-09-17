@@ -1,15 +1,14 @@
 <?php
-require("modele.php");
+require("model.php");
 
-function affichage()
+function viewProduct()
 {
-    $result = result();
-
-    require("affichage.php");
+    $products = view();
+    require("view.php");
 }
 function addProduct()
 {
-    $add = add();
+    add();
     require("add.php");
 }
 
@@ -20,13 +19,13 @@ function deleteProduct()
 
 function detailProduct()
 {
-    $produit = detail();
+    $products = detail();
     require("details.php");
 }
 
-function modifierProduct()
+function updateProduct()
 {
-    $produit=modifier();
+    $products = update();
     require("edit.php");
 }
 ?>

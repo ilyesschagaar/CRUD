@@ -1,9 +1,12 @@
 <?php
 
-function view()
+class Model
 {
 
-$db = connect();
+public function view()
+{
+
+$db = $this-> connect();
 
 session_start();
 
@@ -20,7 +23,7 @@ $products = $query->fetchAll(PDO::FETCH_ASSOC);
 return $products;
 } 
 
-function connect()
+private function connect()
 {
     try {
     // Connexion à la base
@@ -33,7 +36,7 @@ function connect()
 }
 }
 
-function add()
+public function add()
 {
 // On démarre une session
 session_start();
@@ -42,7 +45,7 @@ if($_POST){
     && isset($_POST['prix']) && !empty($_POST['prix'])
     && isset($_POST['nombre']) && !empty($_POST['nombre'])){
         // On inclut la connexion à la base
-        $db = connect();
+        $db = $this->connect();
 
         // On nettoie les données envoyées
         $products = strip_tags($_POST['produit']);
@@ -69,13 +72,13 @@ if($_POST){
 }
 }
 
-function delete()
+public function delete()
 {
     // On démarre une session
     session_start();
 // Est-ce que l'id existe et n'est pas vide dans l'URL
 if(isset($_GET['id']) && !empty($_GET['id'])){
-    $db = connect();
+    $db = $this->connect();
     // On nettoie l'id envoyé
     $id = strip_tags($_GET['id']);
 
@@ -120,11 +123,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 }
 }
 
-function detail()
+public function detail()
 {
 // Est-ce que l'id existe et n'est pas vide dans l'URL
 if(isset($_GET['id']) && !empty($_GET['id'])){
-    $db = connect();
+    $db =  $this->connect();
 
     // On nettoie l'id envoyé
     $id = strip_tags($_GET['id']);
@@ -154,7 +157,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])){
 }
 }
 
-function update()
+public function update()
 {
     // On démarre une session
     session_start();
@@ -165,7 +168,7 @@ function update()
         && isset($_POST['prix']) && !empty($_POST['prix'])
         && isset($_POST['nombre']) && !empty($_POST['nombre'])){
             // On inclut la connexion à la base
-            $db = connect();
+            $db = $this-> connect();
     
             // On nettoie les données envoyées
             $id = strip_tags($_POST['id']);
@@ -195,7 +198,7 @@ function update()
     
     // Est-ce que l'id existe et n'est pas vide dans l'URL
     if(isset($_GET['id']) && !empty($_GET['id'])){
-        $db = connect();
+        $db = $this-> connect();
     
         // On nettoie l'id envoyé
         $id = strip_tags($_GET['id']);
@@ -223,4 +226,5 @@ function update()
         $_SESSION['erreur'] = "URL invalide";
         header('Location: index.php');
     }
+}
 }
